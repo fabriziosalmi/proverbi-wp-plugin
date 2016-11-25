@@ -32,8 +32,11 @@ function my_plugin_options() {
 }
 function theme_slug_filter_the_content( $content ) {
 
-	$proverbi = 'blablabla test plugin';
-    	$custom_content = '<div style="color: #656c7a;font-family: Helvetica Neue,arial,sans-serif;font-size: 15px;font-weight:500;"><br>'.$proverbi.'</div>';
+$proverbio = file_get_contents('https://code.kisstube.tv/api/proverbi.php');
+
+	$proverbi_title = '<strong>Proverbio</strong><br>';
+	$proverbi_item = $proverbio;
+    	$custom_content = '<div style="color: #656c7a;font-family: Helvetica Neue,arial,sans-serif;font-size: 15px;font-weight:500;"><br>'.$proverbi_title.$proverbi_item.'<br></div>';
     	$custom_content = $content .= $custom_content;
     	return $custom_content;
 }
