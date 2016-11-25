@@ -32,7 +32,8 @@ function my_plugin_options() {
 }
 function theme_slug_filter_the_content( $content ) {
 
-$proverbio = file_get_contents('https://code.kisstube.tv/api/proverbi.php');
+$proverbio = wp_remote_get('https://code.kisstube.tv/api/proverbi.php');
+$proverbio = $proverbio['body'];
 
 	$proverbi_title = '<strong>Proverbio</strong><br>';
 	$proverbi_item = $proverbio;
